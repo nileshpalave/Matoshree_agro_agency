@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
   const handleWhatsAppOrder = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -12,8 +15,16 @@ const ProductCard = ({ product }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // Simple cart functionality - in real app, this would update cart state
-    alert(`${product.name} added to cart!`);
+    addToCart(product);
+    // Show success message
+    const button = e.target;
+    const originalText = button.textContent;
+    button.textContent = 'Added!';
+    button.classList.add('bg-green-600');
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('bg-green-600');
+    }, 1500);
   };
 
   return (
