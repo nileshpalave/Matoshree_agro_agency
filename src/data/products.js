@@ -8,7 +8,7 @@ export const products = [
     marathiDescription: "वेगवेगळ्या पिकांसाठी उच्च नत्रयुक्त खत",
     price: 950,
     unit: "50 kg bag",
-    image: "/src/assets/images/urea.jpg",
+    image: "/assets/images/urea.jpg",
     bestSeller: true,
     featured: true,
     usage: "Apply during active growth phase. Recommended for cereals, vegetables, and fruits.",

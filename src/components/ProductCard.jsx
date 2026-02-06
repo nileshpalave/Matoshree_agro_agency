@@ -32,12 +32,16 @@ const ProductCard = ({ product }) => {
             )}
           </div>
 
-          {/* Product Image Placeholder */}
-          <div className="product-image w-full h-40 bg-agro-lighter rounded-lg mb-4 flex items-center justify-center">
-            <svg className="w-16 h-16 text-agro-green" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-            </svg>
-          </div>
+          {/* Product Image */}
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="product-image w-full h-40 object-cover rounded-lg mb-4"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = 'data:image/svg+xml;base64,PHN2ZyBjbGFzcz0idy0xNiBoLTE2IHRleHQtYWdyby1ncmVlbiIgZmlsbD0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjAgMjAiPjxwYXRoIGZpbGxSdWxlPSJldmVub2RkIiBkPSJNNCAzYTIgMiAwIDAwLTIgMnYxMGEyIDIgMCAwMDIgMmgxMmEyIDIgMCAwMDItMlY1YTIgMiAwIDAwLTItMkg0em0xMiAxMkg0bDQtOCAzIDYgMi00IDMgNnoiIGNsaXBSdWxlPSJldmVub2RkIiAvPjwvc3ZnPg==';
+            }}
+          />
 
           {/* Product Name */}
           <h3 className="product-name font-bold text-lg text-agro-green mb-2 group-hover:text-agro-light transition-colors">
@@ -83,12 +87,16 @@ const ProductCard = ({ product }) => {
 
           {/* View Details Link */}
           <div className="product-details-link mt-3 text-center">
-            <Link 
-              to={`/products/${product.id}`}
-              className="link-view-details text-agro-green hover:text-agro-light font-medium text-sm transition-colors"
+            <span 
+              className="link-view-details text-agro-green hover:text-agro-light font-medium text-sm transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = `/products/${product.id}`;
+              }}
             >
               View details →
-            </Link>
+            </span>
           </div>
         </div>
       </Link>
