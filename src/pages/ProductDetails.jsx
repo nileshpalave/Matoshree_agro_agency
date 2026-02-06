@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/products';
+import { useCart } from '../contexts/CartContext';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const foundProduct = products.find(p => p.id === parseInt(id));
@@ -20,7 +22,16 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    alert(`${product.name} added to cart!`);
+    addToCart(product);
+    // Show success feedback
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Added!';
+    button.classList.add('bg-green-600');
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove('bg-green-600');
+    }, 1500);
   };
 
   if (loading) {
@@ -71,11 +82,15 @@ const ProductDetails = () => {
           {/* Product Image */}
           <div>
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <div className="w-full h-96 bg-agro-lighter rounded-lg flex items-center justify-center">
-                <svg className="w-32 h-32 text-agro-green" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                </svg>
-              </div>
+              <img 
+                src={product.image} 
+                alt={product.name}
+                className="w-full h-96 object-cover rounded-lg"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyBjbGFzcz0idy0zMiBoLTMyIHRleHQtYWdyby1ncmVlbiIgZmlsbD0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjAgMjAiPjxwYXRoIGZpbGxSdWxlPSJldmVub2RkIiBkPSJNCAzYTIgMiAwIDAwLTIgMnYxMGEyIDIgMCAwMDIgMmgxMmEyIDIgMCAwMDItMlY1YTIgMiAwIDAwLTItMkg0em0xMiAxMkg0bDQtOCAzIDYgMi00IDMgNnoiIGNsaXBSdWxlPSJldmVub2RkIiAvPjwvc3ZnPg==';
+                }}
+              />
             </div>
           </div>
 
