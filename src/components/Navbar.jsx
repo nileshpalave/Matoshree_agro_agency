@@ -45,7 +45,7 @@ const Navbar = () => {
               <div className="logo-icon w-10 h-10 bg-agro-green rounded-full flex items-center justify-center text-white font-bold">
                 MA
               </div>
-              <span className="logo-text font-bold text-xl text-agro-green">Matoshree Agro Agencies</span>
+              <span className="logo-text font-bold text-xl text-agro-green">मातोश्री</span>
             </Link>
 
             {/* Desktop Menu */}

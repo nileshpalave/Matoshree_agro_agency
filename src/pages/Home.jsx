@@ -10,13 +10,13 @@ const Home = () => {
   const displayTestimonials = testimonials.slice(0, 3);
 
   const handleWhatsAppOrder = () => {
-    const message = "Hello, I want to place an order with Matoshree Agro Agencies.";
+    const message = "Hello, I want to place an order with मातोश्री.";
     const whatsappUrl = `https://wa.me/919130061948?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleGoogleMaps = () => {
-    const mapsUrl = "https://maps.google.com/?q=Matoshree+Agro+Agencies+Mandve+Giravi+Solapur";
+    const mapsUrl = "https://maps.google.com/?q=मातोश्री+Mandve+Giravi+Solapur";
     window.open(mapsUrl, '_blank');
   };
 

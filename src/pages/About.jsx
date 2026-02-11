@@ -3,12 +3,12 @@ import SectionTitle from '../components/SectionTitle';
 
 const About = () => {
   const handleGoogleMaps = () => {
-    const mapsUrl = "https://maps.google.com/?q=Matoshree+Agro+Agencies+Mandve+Giravi+Solapur";
+    const mapsUrl = "https://maps.google.com/?q=मातोश्री+Mandve+Giravi+Solapur";
     window.open(mapsUrl, '_blank');
   };
 
   const handleWhatsAppContact = () => {
-    const message = "Hello, I would like to know more about Matoshree Agro Agencies.";
+    const message = "Hello, I would like to know more about मातोश्री.";
     const whatsappUrl = `https://wa.me/919130061948?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -29,7 +29,7 @@ const About = () => {
               <div className="w-20 h-20 bg-agro-green rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
                 MA
               </div>
-              <h2 className="text-2xl font-bold text-agro-green mb-4">Matoshree Agro Agencies</h2>
+              <h2 className="text-2xl font-bold text-agro-green mb-4">मातोश्री</h2>
               <p className="text-gray-600 text-lg">
                 Shop No 1, Mandve, Giravi, Solapur, Maharashtra 413111
               </p>

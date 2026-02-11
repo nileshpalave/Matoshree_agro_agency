@@ -16,7 +16,7 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleWhatsAppOrder = () => {
-    const message = `Hello, I want to order ${product.name} (${product.unit}) from Matoshree Agro Agencies.`;
+    const message = `Hello, I want to order ${product.name} (${product.unit}) from मातोश्री.`;
     const whatsappUrl = `https://wa.me/919130061948?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
